@@ -9,6 +9,7 @@ const cartRoutes = require('./Routes/cartRoute')
 const orderModel = require('./Model/orderschema')
 const crypto = require('crypto')
 const Razorpay = require('razorpay')
+require('dotenv').config()
 
 const app = express()
 app.use(express.json())
@@ -16,9 +17,13 @@ app.use(cors())
 app.use(bodyparser.json())
 app.use('/api/cart',cartRoutes)
 
-mongoose.connect("mongodb://127.0.0.1:27017/sparked")
+mongoose.connect(process.env.MONGODB_URL)
 
 //Server for Register
+
+app.get('/',(req,res)=>{
+    res.send("Server is running")
+})
 
 app.post('/register',(req,res)=>{
    empModel.create(req.body)
