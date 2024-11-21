@@ -1,0 +1,11 @@
+const mongoose = require('mongoose');
+const cartItemSchema = new mongoose.Schema({
+    productId:{
+        type:mongoose.Schema.Types.ObjectId,
+        
+        ref:'movie'
+    }
+    
+})
+
+module.exports = mongoose.model('CartItem',cartItemSchema)
