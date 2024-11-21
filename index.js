@@ -135,6 +135,6 @@ app.get('/getorder',(req,res)=>{
 
 //Server Connection
 
-app.listen(3001,()=>{
+app.listen(process.env.PORT,()=>{
     console.log(`Server is running on port`)
 })
